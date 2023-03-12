@@ -17,4 +17,8 @@
 
 ### Features
 
-- Add commit author and commit id (Simonas Daniliauskas (a5740708d8fe35aa816c39ee826bd5fbe047cf15))
+- Add commit author and commit id (Simonas Daniliauskas (a5740708d8fe35aa816c39ee826bd5fbe047cf15))## [1.12.0] - 2023-03-12
+
+### Bug Fixes
+
+- Footer (Simonas Daniliauskas) 633064ef9022d50aa92f10f56a10ef8492f3e509
