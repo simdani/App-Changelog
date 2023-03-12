@@ -13,4 +13,8 @@
 
 ### Documentation
 
-- Update changelog file
+- Update changelog file## [1.11.0] - 2023-03-12
+
+### Features
+
+- Add commit author and commit id (Simonas Daniliauskas (a5740708d8fe35aa816c39ee826bd5fbe047cf15))
