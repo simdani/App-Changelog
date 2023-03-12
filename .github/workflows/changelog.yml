@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write
+
 jobs:
   changelog:
     name: Generate changelog
@@ -34,13 +37,20 @@ jobs:
           contents: |
             ${{ steps.git-cliff.outputs.content }}
             
-      - name: Commit & Push
-        uses: Andro999b/push@v1.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: false
-          message: 'Overwritten by Github Actions - ${date}'
+      - name: GIT Commit Changelog
+        run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "changelog@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push  
+            
+      # - name: Commit & Push
+      #   uses: Andro999b/push@v1.3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: main
+      #     force: false
+      #     message: 'Overwritten by Github Actions - ${date}'
 
       # - name: Upload the binary releases
       #   uses: svenstaro/upload-release-action@v2
