@@ -1,4 +1,6 @@
-### Changelog## [unreleased]
+### Changelog
+
+## [unreleased]
 
 ### Features
 
