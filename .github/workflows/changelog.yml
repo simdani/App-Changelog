@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --global user.name "changelog"
           git config --global user.email "changelog@users.noreply.github.com"
-          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git commit -a -m "Update Changelog.md"
           git push  
             
       # - name: Commit & Push
