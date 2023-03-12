@@ -5,13 +5,14 @@ on:
     tags:
       - '*'
 
-permissions:
-  contents: write
-
 jobs:
   changelog:
     name: Generate changelog
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     outputs:
       release_body: ${{ steps.git-cliff.outputs.content }}
     steps:
@@ -36,13 +37,15 @@ jobs:
           write-mode: append
           contents: |
             ${{ steps.git-cliff.outputs.content }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
             
-      - name: GIT Commit Changelog
-        run: |
-          git config --global user.name "changelog"
-          git config --global user.email "changelog@users.noreply.github.com"
-          git commit -a -m "Update Changelog.md"
-          git push  
+      # - name: GIT Commit Changelog
+      #   run: |
+      #     git config --global user.name "changelog"
+      #     git config --global user.email "changelog@users.noreply.github.com"
+      #     git commit -a -m "Update Changelog.md"
+      #     git push  
             
       # - name: Commit & Push
       #   uses: Andro999b/push@v1.3
